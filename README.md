@@ -1,5 +1,5 @@
-###### This project was done while learning Redux Toolkit.
-Check this project on Netlify - https://shopping-cart-with-rtk.netlify.app/
+###### This project I did while learning Redux Toolkit.
+Check this out on Netlify - https://shopping-cart-with-rtk.netlify.app/
 
 </br>
 
@@ -21,7 +21,7 @@ export const store = configureStore({
 });
 ```
 
-## (3) Provide store to whole React app
+## (3) Available store to whole React app
 To configure it, go to 'index.js' file
 ```
 import React from "react";
