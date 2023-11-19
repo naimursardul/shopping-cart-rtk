@@ -11,7 +11,7 @@ npm install --save react-redux @reduxjs/toolkit
 ```
 
 ## (2) Create a global store under src/app/store.js
-```
+```js
 import { configureStore } from "@reduxjs/toolkit";
 
 export const store = configureStore({
@@ -23,7 +23,7 @@ export const store = configureStore({
 
 ## (3) Available store to whole React app
 To configure it, go to 'index.js' file
-```
+```js
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -42,7 +42,7 @@ root.render(
 ## (4) Create a slice
 Create a slice under 'src/features/slice/sliceName.js'
 
-```
+```js
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -69,7 +69,7 @@ export default sliceName.reducer;
 
 ## (5) Add slice reducer to store.js
 
-```
+```js
 import { configureStore } from "@reduxjs/toolkit";
 import sliceName from "../features/slice/sliceName";
 
@@ -80,7 +80,7 @@ export const store = configureStore({
 
 ## (6) useSelector and useDispatch to interact with React app
 
-```
+```js
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { incrementByInput, incrementBy1 } from "../features/slice/sliceName";
