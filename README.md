@@ -3,7 +3,7 @@ Check this out on Netlify - https://shopping-cart-with-rtk.netlify.app/
 
 </br>
 
-# Let's build a Redux app
+# Let's build a Redux app in 6 stpes
 
 ## (1) Install Redux and Redux Toolkit package in an react app
 ```
