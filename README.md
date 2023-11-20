@@ -103,3 +103,98 @@ export default function Counter() {
 ```
 
 #### Thank You...
+
+
+# Fetch data with RTK
+First, have to follow the regular 5 steps of building redux app. Then the following extra 3 steps have to be done.
+
+## (1) import createAsyncThunk and configure like below
+```js
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
+// configure to action
+export const getAllData = createAsyncThunk( "gitHubUser", async() =>{
+  const response = await fetch("https://api.github.com/users");
+  const result = response.json();
+  return result;
+})
+
+const initialState = {
+    users: [],
+    loading: false,
+    error: null,
+}; 
+
+export const getUserSlice = createSlice({
+  name: "getUserData",
+  initialState,
+  reducer: {},
+});
+
+export default getUserSlice.reducer;
+```
+
+## (2) create 'extraReducer' instead of 'reduce'
+```js
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
+
+export const getAllData = createAsyncThunk( "gitHubUser", async() =>{
+  const response = await fetch("https://api.github.com/users");
+  const result = response.json();
+  return result;
+})
+
+const initialState = {
+    users: [],
+    loading: false,
+    error: null,
+}; 
+
+export const getUserSlice = createSlice({
+  name: "getUserData",
+  initialState,
+  extraReducers: {
+    [getAllData.pending] : (state) => {
+      state.loading = true;
+    },
+    [getAllData.fulfilled] : (state, action) => {
+      state.loading = false;
+      state.users = action.payload;
+    },
+    [getAllData.rejected] : (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+  }
+});
+
+export default getUserSlice.reducer;
+```
+
+## (3) Use 'useSelector' and 'useDispatch' to interact with React App
+```jsx
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllData } from './feature/slice/slice';
+
+function App() {
+  const dispatch = useDispatch();
+  const { users } = useSelector( state => state.userData );
+
+  return (
+    <div style={{margin: "30px auto", width: "50%", textAlign: "center"}}>
+      <button  onClick={() => dispatch(getAllData())}>Get Users</button>
+      {
+        users.map(user => 
+        <div>
+          <h3>{user.id}</h3> 
+          <h5>{user.login}</h5> 
+        </div>)
+      }
+    </div>
+  );
+}
+
+export default App;
+
+```
