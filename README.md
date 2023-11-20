@@ -71,7 +71,7 @@ export default sliceName.reducer;
 
 ```js
 import { configureStore } from "@reduxjs/toolkit";
-import sliceName from "../features/slice/sliceName";
+import reducerName from "../features/slice/sliceName";
 
 export const store = configureStore({
   reducer: { storeReducerName : reducerName },
