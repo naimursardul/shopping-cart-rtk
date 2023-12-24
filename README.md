@@ -203,12 +203,12 @@ export default App;
 
 # CURD with axios and RTK
 
-## (1) Install axios 
+### (1) Install axios 
 ```
 npm install axios
 ```
 
-## (2) get action
+### (2) get action
 
 ```js
 export const funName = createAsyncThunk("actionName", async () => {
@@ -222,7 +222,7 @@ export const funName = createAsyncThunk("actionName", async () => {
 });
 ```
 
-## (3) Post action
+### (3) Post action
 
 ```js
 export const funName = createAsyncThunk("actionName", async (dataFromClient) => {
@@ -240,11 +240,11 @@ export const funName = createAsyncThunk("actionName", async (dataFromClient) => 
 
 # Handle CORS (Cross-Origin Resource Sharing) issue
 
-## (1) Install cors
+### (1) Install cors
 ```
 npm i cors
 ```
-## (2) Use in express execution file
+### (2) Use in express execution file
 ```js
 import cors from "cors";
 
