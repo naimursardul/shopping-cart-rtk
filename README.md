@@ -240,26 +240,33 @@ export const funName = createAsyncThunk("actionName", async (dataFromClient) => 
 
 # Handle CORS (Cross-Origin Resource Sharing) issue
 
-## (1) npm i cors
+## (1) Install cors
+```
+npm i cors
+```
+## (2) Use in express execution file
+```js
+import cors from "cors";
 
-## (2) import cors from "cors";
-
-## (3) app.use(cors())
-
+app.use(cors())
+```
 
 
 # DOTENV
-## (1) npm i dotenv
+### (1) install dotenv
+```
+npm i dotenv
+```
 
-## (2) create file with name ".env"
+### (2) create file with name ".env"
 
-## (3) '.env' file
+### (3) '.env' file
 ```.env
 DB_USERNAME=admin
 DB_PASSWORD=12345678
 ```
 
-## (4) file where you need the variable
+### (4) file where you need the variable
 
 ```js
 import dotenv from "dotenv";
@@ -273,9 +280,11 @@ const PASSWORD = process.env.DB_PASSWORD;
 
 # Mongoose
 
-## (1) npm i mongoose
-
-## (2) Mongoose execution file
+### (1) install mongoose
+```
+npm i mongoose
+```
+### (2) Mongoose execution file
 
 ```js
 import mongoose from "mongoose";
@@ -299,7 +308,7 @@ const Connection = () => {
 export default Connection;
 ```
 
-## (3) Mongoose Schema file for data validation
+### (3) Mongoose Schema file for data validation
 
 ```js
 import mongoose from "mongoose";
@@ -325,7 +334,7 @@ export default Todo;
 
 ```
 
-## (4) express execution file
+### (4) express execution file
 
 ```js
 import express from "express";
